@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6b4b">
+<meta name="description" content="Used cars in Nairobi. Browse current stock and message us on WhatsApp.">
+<title>Riman Motor Group | Used Cars in Nairobi</title>
+<!-- Meta Pixel (dataset "John"). Sends PageView on load and Contact on WhatsApp/Call taps. -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '8468742039913652');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=8468742039913652&ev=PageView&noscript=1"/></noscript>
+<style>
+:root{--bg:#f5f6f4;--surface:#fff;--ink:#1a1f1c;--muted:#5d6861;--brand:#0b6b4b;--brand-ink:#fff;--line:#e1e5e2;--wa:#25d366;--tint:#e8f3ee}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);padding-bottom:calc(76px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+.top{background:var(--brand);color:var(--brand-ink);padding:18px 16px 16px}
+.top h1{margin:0;font-size:21px}
+.top p{margin:4px 0 0;font-size:13px;opacity:.9}
+.tools{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 16px 10px;border-bottom:1px solid var(--line)}
+.tools input,.tools select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font-size:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.tools select{margin-top:10px}
+.count{padding:12px 16px 0;color:var(--muted);font-size:13px}
+.grid{display:grid;gap:14px;padding:12px 16px 16px;grid-template-columns:1fr}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media (min-width:960px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer}
+.card:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.photo{aspect-ratio:4/3;background:#dfe5e1}
+.photo img,.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.noimg{aspect-ratio:4/3;background:#dfe5e1;width:100%}
+.info{padding:12px 14px 14px}
+.price{font-weight:700;font-size:18px}
+.name{font-weight:600;margin-top:2px}
+.meta{color:var(--muted);font-size:13px;margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{font-size:12px;padding:3px 8px;border-radius:6px;background:var(--tint);color:var(--brand)}
+.state{padding:28px 16px;color:var(--muted);text-align:center;grid-column:1/-1}
+.skeleton{height:260px;border-radius:14px;background:linear-gradient(90deg,#e9ede9,#f4f6f4,#e9ede9);background-size:200% 100%;animation:sh 1.2s infinite;border:1px solid var(--line)}
+@keyframes sh{to{background-position:-200% 0}}
+.sell{margin:4px 16px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.sell h2{margin:0 0 6px;font-size:17px}
+.sell p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.visit{margin:0 16px 16px;color:var(--muted);font-size:14px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:8px 16px 20px}
+footer a{color:var(--muted)}
+.privacy{margin:8px 16px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14px;line-height:1.5}
+.privacy h2{font-size:17px;margin:0 0 6px}
+.privacy h3{font-size:15px;margin:14px 0 4px}
+.privacy p,.privacy li{margin:4px 0;color:var(--muted)}
+.privacy ul{padding-left:18px;margin:4px 0}
+.btn{display:block;text-align:center;padding:14px 12px;border-radius:12px;font-weight:600;text-decoration:none;border:0;cursor:pointer;width:100%;font-size:15px}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-call{background:var(--brand);color:var(--brand-ink)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line)}
+.bar .btn{flex:1}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.sheet.open{display:flex}
+.panel{background:var(--surface);width:100%;max-width:680px;max-height:92vh;overflow-y:auto;border-radius:18px 18px 0 0;padding:10px 0 calc(20px + env(safe-area-inset-bottom,0px))}
+.grip{width:40px;height:4px;background:var(--line);border-radius:4px;margin:0 auto 10px}
+.gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding:0 16px}
+.gallery>*{flex:0 0 88%;scroll-snap-align:center;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+@media (min-width:640px){.gallery>*{flex-basis:70%}}
+.pad{padding:0 16px}
+.pad h2{margin:14px 0 4px;font-size:20px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.spec{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:15px}
+.spec small{display:block;color:var(--muted);font-size:12px}
+.desc{white-space:pre-line;font-size:15px;margin:10px 0}
+.actions{display:grid;gap:8px;margin-top:12px}
+.close{background:none;border:0;color:var(--muted);padding:10px;cursor:pointer;width:100%}
+.pay{margin:10px 0 0;font-size:15px;padding:10px 12px;border-radius:10px;background:var(--tint)}
+.gallery [data-idx]{cursor:zoom-in}
+.viewer{position:fixed;inset:0;z-index:30;background:#000;display:none;flex-direction:column}
+.viewer.open{display:flex}
+.v-stage{position:relative;flex:1;overflow:hidden;touch-action:none}
+.v-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.v-count{position:absolute;top:20px;left:16px;color:#fff;font-size:14px;z-index:2}
+.v-close{position:absolute;top:10px;right:12px;z-index:2;background:rgba(255,255,255,.18);color:#fff;border:0;border-radius:999px;width:40px;height:40px;font-size:24px;cursor:pointer}
+.v-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:rgba(255,255,255,.18);color:#fff;border:0;border-radius:999px;width:40px;height:40px;font-size:24px;cursor:pointer}
+.v-prev{left:8px}
+.v-next{right:8px}
+@media (max-width:640px){.v-nav{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Riman Motor Group</h1>
+  <p>Used cars in Nairobi</p>
+</header>
+
+<section class="sell">
+  <h2>Selling your car?</h2>
+  <p>Tell us about your car and we will help find a serious buyer for it.</p>
+  <a class="btn btn-ghost" id="sellBtn" href="#" target="_blank" rel="noopener" data-track="sell">WhatsApp us about selling</a>
+</section>
+
+<div class="tools">
+  <input id="q" type="search" placeholder="Search make, model or colour" aria-label="Search cars">
+  <div class="chips" id="bands" role="group" aria-label="Price range">
+    <button class="chip" data-band="all" aria-pressed="true">All prices</button>
+    <button class="chip" data-band="low" aria-pressed="false">Under KES 1M</button>
+    <button class="chip" data-band="mid" aria-pressed="false">KES 1M to 2M</button>
+    <button class="chip" data-band="high" aria-pressed="false">Above KES 2M</button>
+  </div>
+  <select id="sort" aria-label="Sort cars">
+    <option value="newest">Newest first</option>
+    <option value="price-asc">Price: low to high</option>
+    <option value="price-desc">Price: high to low</option>
+    <option value="km-asc">Lowest mileage</option>
+  </select>
+</div>
+
+<div class="count" id="count" aria-live="polite"></div>
+<main class="grid" id="grid"></main>
+
+<section class="visit">
+  <strong>Viewing:</strong> <span id="viewing"></span>. Message us on WhatsApp to book a time.
+</section>
+
+<section class="privacy" id="privacy">
+  <h2>Privacy notice</h2>
+  <p>Last updated: 25 November 2026</p>
+  <p>Riman Motor Group ("we") runs this website and sells used cars in Nairobi.</p>
+
+  <h3>What we collect</h3>
+  <ul>
+    <li>The messages and phone number you send us on WhatsApp, and the number you call from.</li>
+    <li>Activity on this site, recorded by the Meta Pixel: pages you open, and which cars you view or contact us about.</li>
+  </ul>
+
+  <h3>Why we use it</h3>
+  <ul>
+    <li>To reply to your enquiry and arrange viewings.</li>
+    <li>To measure and improve our Facebook and Instagram adverts.</li>
+  </ul>
+
+  <h3>Who we share it with</h3>
+  <ul>
+    <li>Meta (Facebook and Instagram), through the Meta Pixel. Meta may link pixel activity to your Facebook or Instagram account if you use them.</li>
+    <li>We do not sell your personal information.</li>
+  </ul>
+
+  <h3>How long we keep it</h3>
+  <p>WhatsApp messages and call records are kept for 12 months after your last contact, then deleted.</p>
+
+  <h3>Your rights</h3>
+  <p>You can ask us to see, correct or delete your personal information, or to stop messages. Contact us on WhatsApp or by phone on 0723 933 363.</p>
+
+  <h3>Cookies</h3>
+  <p>The Meta Pixel sets cookies on your device. You can clear or block them in your browser settings.</p>
+</section>
+
+<footer>&copy; 2026 Riman Motor Group &middot; Nairobi &middot; <a href="#privacy">Privacy notice</a></footer>
+
+<nav class="bar" aria-label="Contact">
+  <a class="btn btn-wa" id="waBar" href="#" target="_blank" rel="noopener" data-track="whatsapp">WhatsApp</a>
+  <a class="btn btn-call" id="callBar" href="#" data-track="call">Call</a>
+</nav>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Car photos">
+  <div class="v-count" id="vCount"></div>
+  <button class="v-close" id="vClose" aria-label="Close photos">&times;</button>
+  <div class="v-stage" id="vStage"><img id="vImg" alt=""></div>
+  <button class="v-nav v-prev" id="vPrev" aria-label="Previous photo">&lsaquo;</button>
+  <button class="v-nav v-next" id="vNext" aria-label="Next photo">&rsaquo;</button>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="panel" id="panel"></div>
+</div>
+
+<script>
+/* ---------- Settings: change these ---------- */
+const CONFIG = {
+  SHEET_ID: "1kExlx7ZCS3UnoSue8NeSt3wjoev-7uvtP_Dy5P0ias8",
+  SHEET_TAB: "Sheet1",                 // the tab that holds your live stock
+  PHONE_DISPLAY: "0723 933 363",
+  PHONE_INTL: "254723933363",          // country code first, no +
+  VIEWING_AREA: "Lavington, Nairobi",  // the area you want buyers to see
+  PAYMENT_TEXT: "Cash, trade-in and finance accepted. Hire purchase (HP) not possible."
+};
+
+/* ---------- Helpers ---------- */
+const fmtKES = n => n ? "KES " + Math.round(n).toLocaleString("en-KE") : "Price on request";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num = v => { const n = parseFloat(String(v ?? "").replace(/[^0-9.]/g, "")); return isNaN(n) ? 0 : n; };
+const waLink = msg => `https://wa.me/${CONFIG.PHONE_INTL}?text=${encodeURIComponent(msg)}`;
+const safeUrl = u => /^https:\/\//i.test(String(u || "")) ? u : "";
+const driveId = u => { const m = String(u || "").match(/(?:\/d\/|[?&]id=)([A-Za-z0-9_-]{15,})/); return m ? m[1] : ""; };
+const thumb = (id, w = 800) => `https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+const altThumb = id => `https://lh3.googleusercontent.com/d/${id}=w800`;
+
+function track(name, data) {
+  if (typeof window.fbq === "function") window.fbq("track", name, data);
+}
+
+function img(fid, alt) {
+  if (!fid) return `<div class="noimg" role="img" aria-label="${esc(alt)}"></div>`;
+  return `<img src="${thumb(fid)}" alt="${esc(alt)}" loading="lazy" data-alt="${altThumb(fid)}" onerror="if(this.dataset.alt){this.src=this.dataset.alt;this.dataset.alt=''}else{this.style.display='none'}">`;
+}
+
+/* ---------- Load stock from the Google Sheet ---------- */
+const GVIZ = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(CONFIG.SHEET_TAB)}`;
+
+async function fetchRows() {
+  const res = await fetch(GVIZ, { cache: "no-store" });
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  const text = await res.text();
+  const table = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1)).table;
+
+  let labels = table.cols.map(c => (c.label || "").trim());
+  let rows = table.rows.map(r => r.c.map(cell => cell ? String(cell.f ?? cell.v ?? "") : ""));
+  // If the header row wasn't detected, use the first row as headers
+  if (labels.every(l => !l || /^[A-Z]{1,2}$/.test(l))) {
+    labels = (rows.shift() || []).map(v => v.trim());
+  }
+  return rows
+    .filter(r => r.some(v => v !== ""))
+    .map(r => Object.fromEntries(labels.map((l, i) => [l, r[i] ?? ""]).filter(([k]) => k)));
+}
+
+function toCar(r) {
+  const seen = new Set(), images = [];
+  for (let i = 0; i < 10; i++) {
+    const fid = driveId(r[`image[${i}].url`]);
+    if (fid && !seen.has(fid)) { seen.add(fid); images.push(fid); }
+  }
+  const desc = r.description || "";
+  const status = `${r.availability || ""} ${r.Availability || ""}`.toLowerCase();
+  const sold = /^yes$/i.test((r.Sold || "").trim());
+  return {
+    id: String(r.vehicle_id || ""),
+    title: r.title || `${r.year} ${r.make} ${r.model}`.trim(),
+    make: r.make || "", model: r.model || "",
+    year: num(r.year), price: num(r.price), km: num(r["mileage.value"]),
+    unit: /mile/i.test(r["mileage.unit"] || "") ? "miles" : "km",
+    body: r.body_style || "", condition: r.state_of_vehicle || "",
+    colour: r.exterior_color || "", transmission: r.transmission || "", fuel: r.fuel_type || "",
+    engine: (desc.match(/(\d{3,4})\s*cc/i) || [])[1] || "",
+    logbook: /logbook/i.test(desc),
+    accidentFree: /accident[\s-]?free/i.test(desc),
+    description: desc,
+    images,
+    link: safeUrl(r.url),
+    available: !sold && !/sold|reserved|unavailable/.test(status)
+  };
+}
+
+/* ---------- State, filtering, sorting ---------- */
+let CARS = [];
+let currentCar = null;
+const state = { q: "", band: "all", sort: "newest" };
+
+function passes(c) {
+  const q = state.q.trim().toLowerCase();
+  if (q && !`${c.title} ${c.make} ${c.model} ${c.colour} ${c.body}`.toLowerCase().includes(q)) return false;
+  if (state.band === "low")  return c.price > 0 && c.price < 1000000;
+  if (state.band === "mid")  return c.price >= 1000000 && c.price <= 2000000;
+  if (state.band === "high") return c.price > 2000000;
+  return true;
+}
+
+const priceOr = c => c.price || 1e12; // unpriced cars sort last
+
+function sorted(list) {
+  const by = {
+    "newest":     (a, b) => b.year - a.year,
+    "price-asc":  (a, b) => priceOr(a) - priceOr(b),
+    "price-desc": (a, b) => (b.price || 0) - (a.price || 0),
+    "km-asc":     (a, b) => (a.km || 1e12) - (b.km || 1e12)
+  }[state.sort];
+  return [...list].sort(by);
+}
+
+/* ---------- Rendering ---------- */
+function cardHTML(c) {
+  const tags = [c.logbook && "Logbook ready", c.accidentFree && "Accident free", c.condition]
+    .filter(Boolean).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+  const km = c.km ? `${c.km.toLocaleString("en-KE")} ${c.unit} · ` : "";
+  return `
+  <div class="card" role="button" tabindex="0" data-id="${esc(c.id)}" aria-label="${esc(c.title)}, ${esc(fmtKES(c.price))}">
+    <div class="photo">${img(c.images[0], c.title)}</div>
+    <div class="info">
+      <div class="price">${esc(fmtKES(c.price))}</div>
+      <div class="name">${esc(c.title)}</div>
+      <div class="meta">${esc(km)}${esc(c.transmission)}${c.fuel ? " · " + esc(c.fuel) : ""}</div>
+      <div class="tags">${tags}</div>
+    </div>
+  </div>`;
+}
+
+function renderGrid() {
+  const grid = document.getElementById("grid");
+  const count = document.getElementById("count");
+  const available = CARS.filter(c => c.available);
+
+  if (!available.length) {
+    count.textContent = "";
+    grid.innerHTML = `<div class="state">No cars listed right now. WhatsApp us and we will tell you what is coming in.</div>`;
+    return;
+  }
+  const list = sorted(available.filter(passes));
+  count.textContent = `${list.length} car${list.length === 1 ? "" : "s"} available`;
+  grid.innerHTML = list.length
+    ? list.map(cardHTML).join("")
+    : `<div class="state">No cars match. Try another search or price range, or WhatsApp us and we will look for you.</div>`;
+}
+
+function openCar(id) {
+  const c = CARS.find(x => x.id === id);
+  if (!c) return;
+  currentCar = c;
+  history.replaceState(null, "", "#car=" + encodeURIComponent(c.id));
+  track("ViewContent", {
+    content_name: c.title,
+    content_ids: [c.id],
+    content_type: "vehicle",
+    ...(c.price ? { value: c.price, currency: "KES" } : {})
+  });
+
+  const msg = `Hi, I'm interested in the ${c.title}${c.id ? " (ref " + c.id + ")" : ""} at ${fmtKES(c.price)}. Is it still available?`;
+  const specs = [
+    ["Year", c.year || "—"],
+    ["Mileage", c.km ? c.km.toLocaleString("en-KE") + " " + c.unit : "—"],
+    ["Transmission", c.transmission || "—"],
+    ["Fuel", c.fuel || "—"],
+    ["Body", c.body || "—"],
+    ["Colour", c.colour || "—"],
+    ["Engine", c.engine ? c.engine + "cc" : "—"],
+    ["Condition", c.condition || "—"]
+  ];
+  const gallery = c.images.length
+    ? c.images.map((fid, i) => `<div data-idx="${i}">${img(fid, c.title)}</div>`).join("")
+    : `<div class="noimg"></div>`;
+  const tags = [c.logbook && "Logbook ready", c.accidentFree && "Accident free"]
+    .filter(Boolean).map(t => `<span class="tag">${esc(t)}</span>`).join("");
+
+  document.getElementById("panel").innerHTML = `
+    <div class="grip"></div>
+    <div class="gallery">${gallery}</div>
+    <div class="pad">
+      <h2 id="dTitle">${esc(c.title)}</h2>
+      <div class="price">${esc(fmtKES(c.price))}</div>
+      <div class="tags">${tags}</div>
+      <div class="pay"><strong>Payment:</strong> ${esc(CONFIG.PAYMENT_TEXT)}</div>
+      <div class="specs">${specs.map(([k, v]) => `<div class="spec"><small>${k}</small>${esc(v)}</div>`).join("")}</div>
+      ${c.description ? `<div class="desc">${esc(c.description)}</div>` : ""}
+      <div class="actions">
+        <a class="btn btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener" data-track="whatsapp">WhatsApp about this car</a>
+        <a class="btn btn-call" href="tel:+${CONFIG.PHONE_INTL}" data-track="call">Call ${esc(CONFIG.PHONE_DISPLAY)}</a>
+        ${c.link ? `<a class="btn btn-ghost" href="${esc(c.link)}" target="_blank" rel="noopener">View on Facebook</a>` : ""}
+        <button class="btn btn-ghost" id="shareCar">Share this car</button>
+        <button class="close" id="closeSheet">Close</button>
+      </div>
+    </div>`;
+  document.getElementById("sheet").classList.add("open");
+}
+
+function closeSheet() {
+  document.getElementById("sheet").classList.remove("open");
+  currentCar = null;
+  history.replaceState(null, "", location.pathname + location.search);
+}
+
+/* ---------- Events ---------- */
+document.getElementById("q").addEventListener("input", e => { state.q = e.target.value; renderGrid(); });
+document.getElementById("sort").addEventListener("change", e => { state.sort = e.target.value; renderGrid(); });
+
+document.getElementById("bands").addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if (!chip) return;
+  state.band = chip.dataset.band;
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c === chip)));
+  renderGrid();
+});
+
+const grid = document.getElementById("grid");
+grid.addEventListener("click", e => {
+  const card = e.target.closest(".card");
+  if (card) openCar(card.dataset.id);
+});
+grid.addEventListener("keydown", e => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const card = e.target.closest(".card");
+  if (card) { e.preventDefault(); openCar(card.dataset.id); }
+});
+
+document.getElementById("sheet").addEventListener("click", e => {
+  if (e.target.id === "sheet" || e.target.id === "closeSheet") closeSheet();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !viewerOpen()) closeSheet(); });
+
+// Conversion tracking: WhatsApp, Call and Sell taps
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-track]");
+  if (!t) return;
+  track("Contact", {
+    content_name: currentCar ? currentCar.title : "General enquiry",
+    content_ids: currentCar ? [currentCar.id] : []
+  });
+});
+
+/* ---------- Static links ---------- */
+document.getElementById("waBar").href = waLink("Hi Riman Motor Group, I'm looking for a used car. Can you help?");
+document.getElementById("callBar").href = `tel:+${CONFIG.PHONE_INTL}`;
+document.getElementById("sellBtn").href = waLink("Hi, I want to sell my car. Can you help?");
+document.getElementById("viewing").textContent = CONFIG.VIEWING_AREA;
+
+/* ---------- Start ---------- */
+async function init() {
+  grid.innerHTML = [1, 2, 3].map(() => `<div class="skeleton"></div>`).join("");
+  try {
+    const rows = await fetchRows();
+    CARS = rows.map(toCar).filter(c => c.title);
+    renderGrid();
+    openFromHash();
+  } catch (err) {
+    console.error(err);
+    document.getElementById("count").textContent = "";
+    grid.innerHTML = `<div class="state">We could not load the stock list. WhatsApp us and we will send you what is available.</div>`;
+  }
+}
+/* ---------- Full-screen photo viewer: pinch to zoom, swipe between photos ---------- */
+const viewer = document.getElementById("viewer");
+const vStage = document.getElementById("vStage");
+const vImg = document.getElementById("vImg");
+const vCount = document.getElementById("vCount");
+const V = { list: [], i: 0, s: 1, x: 0, y: 0 };
+const pointers = new Map();
+let pinchStart = null, downX = 0, downY = 0, swipeDx = 0, swipeDy = 0, lastTap = 0;
+
+const viewerOpen = () => viewer.classList.contains("open");
+const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
+const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+
+function paint() {
+  vImg.style.transform = `translate(${V.x}px, ${V.y}px) scale(${V.s})`;
+}
+
+function resetZoom() {
+  V.s = 1; V.x = 0; V.y = 0;
+}
+
+function showPhoto() {
+  resetZoom();
+  vImg.dataset.fb = "";
+  vImg.onerror = () => {
+    if (vImg.dataset.fb !== "1") { vImg.dataset.fb = "1"; vImg.src = altThumb(V.list[V.i]); }
+  };
+  vImg.src = thumb(V.list[V.i], 1600);
+  vCount.textContent = `${V.i + 1} / ${V.list.length}`;
+  paint();
+}
+
+function openPhotos(list, start) {
+  V.list = list;
+  V.i = start;
+  showPhoto();
+  viewer.classList.add("open");
+}
+
+function closePhotos() {
+  viewer.classList.remove("open");
+  pointers.clear();
+}
+
+function step(dir) {
+  const next = clamp(V.i + dir, 0, V.list.length - 1);
+  if (next === V.i) return;
+  V.i = next;
+  showPhoto();
+}
+
+function toggleZoom() {
+  if (V.s > 1) resetZoom(); else V.s = 2.5;
+  paint();
+}
+
+vStage.addEventListener("pointerdown", e => {
+  vStage.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (pointers.size === 1) {
+    downX = e.clientX; downY = e.clientY;
+    swipeDx = swipeDy = 0;
+    const now = Date.now();
+    if (now - lastTap < 300) { toggleZoom(); lastTap = 0; } else { lastTap = now; }
+  }
+  if (pointers.size === 2) {
+    const [a, b] = [...pointers.values()];
+    pinchStart = { d: dist(a, b), s: V.s };
+    swipeDx = swipeDy = 0;
+  }
+});
+
+vStage.addEventListener("pointermove", e => {
+  if (!pointers.has(e.pointerId)) return;
+  const prev = pointers.get(e.pointerId);
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+  if (pointers.size === 2 && pinchStart) {
+    const [a, b] = [...pointers.values()];
+    V.s = clamp(pinchStart.s * dist(a, b) / pinchStart.d, 1, 4);
+  } else if (pointers.size === 1) {
+    if (V.s > 1) {
+      // Zoomed in: drag pans the photo
+      V.x += e.clientX - prev.x;
+      V.y += e.clientY - prev.y;
+      const mx = (V.s - 1) * vStage.clientWidth / 2;
+      const my = (V.s - 1) * vStage.clientHeight / 2;
+      V.x = clamp(V.x, -mx, mx);
+      V.y = clamp(V.y, -my, my);
+    } else {
+      // Normal zoom: horizontal drag swipes to the next or previous photo
+      swipeDx = e.clientX - downX;
+      swipeDy = e.clientY - downY;
+    }
+  }
+  paint();
+});
+
+function endPointer(e) {
+  pointers.delete(e.pointerId);
+  if (pointers.size < 2) pinchStart = null;
+  if (pointers.size === 0) {
+    if (V.s === 1 && Math.abs(swipeDx) > 60 && Math.abs(swipeDx) > Math.abs(swipeDy)) {
+      step(swipeDx < 0 ? 1 : -1);
+    }
+    if (V.s < 1.05) resetZoom();
+    swipeDx = swipeDy = 0;
+    paint();
+  }
+}
+vStage.addEventListener("pointerup", endPointer);
+vStage.addEventListener("pointercancel", endPointer);
+
+document.getElementById("vClose").addEventListener("click", closePhotos);
+document.getElementById("vPrev").addEventListener("click", () => step(-1));
+document.getElementById("vNext").addEventListener("click", () => step(1));
+document.addEventListener("keydown", e => {
+  if (!viewerOpen()) return;
+  if (e.key === "Escape") closePhotos();
+  if (e.key === "ArrowLeft") step(-1);
+  if (e.key === "ArrowRight") step(1);
+});
+
+// Tapping a photo in the car details opens the viewer on that photo
+document.getElementById("sheet").addEventListener("click", e => {
+  const tile = e.target.closest("[data-idx]");
+  if (tile && currentCar) openPhotos(currentCar.images, Number(tile.dataset.idx));
+});
+
+/* ---------- Deep links: ...#car=VEHICLE_ID opens that car directly ---------- */
+function openFromHash() {
+  const m = location.hash.match(/^#car=(.+)$/);
+  if (!m) return;
+  const id = decodeURIComponent(m[1]);
+  if (CARS.some(c => c.id === id && c.available)) openCar(id);
+}
+
+document.getElementById("sheet").addEventListener("click", async e => {
+  if (e.target.id !== "shareCar" || !currentCar) return;
+  const url = location.origin + location.pathname + "#car=" + encodeURIComponent(currentCar.id);
+  if (navigator.share) {
+    try { await navigator.share({ title: currentCar.title, text: `${currentCar.title} · ${fmtKES(currentCar.price)}`, url }); } catch (_) {}
+  } else {
+    try { await navigator.clipboard.writeText(url); e.target.textContent = "Link copied"; } catch (_) {}
+  }
+});
+
+init();
+</script>
+</body>
+</html>
